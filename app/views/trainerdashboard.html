@@ -1,0 +1,23 @@
+
+#{extends 'main.html' /}
+#{set title:'trainerdashboard' /}
+
+#{menu id:"dashboard"/}
+
+
+#{list items:member, as:'member'}
+<section class="ui raised segment">
+    <header class="ui medium header">
+        <i class="user icon"></i>
+        ${member.firstname}${member.lastname}
+    </header>
+    <h3 class = "ui header">
+       ${member.assessments.size()} Assessments
+           <a href="/trainerAssessment/${member.id}/trainerAssessmentView" class="ui icon button">
+               <i class="icon folder open"></i>
+           </a>
+    </h3>
+</section>
+#{/list}
+
+

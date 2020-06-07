@@ -1,0 +1,131 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{menu id:"dashboard"/}
+
+<section class="ui raised segment">
+  <div class="ui four column center aligned grid basic segment">
+    <div class="column">
+      <i class=" huge user icon"></i>
+      <header class="ui header">
+      ${member.firstname}${member.lastname}
+      </header>
+    </div>
+    <div class="column">
+    #{if isIdealBodyWeight == true }<i class=" green tachometer alternate icon huge icon"></i>#{/if}
+    #{else}<i class="red tachometer alternate icon huge icon"></i>#{/else}
+      <header class="ui header">
+        IDEAL WEIGHT INDICATOR
+      </header>
+    </div>
+    <div class ="column">
+     <header class = "ui header">BMI</header>
+      <i class="big heartbeat icon"></i>
+      <header class = "ui header" formate="##.##">
+        ${BMI}
+      </header>
+    </div>
+    <div class ="column">
+      <header class="ui header">
+          BMI Range
+      </header>
+      <i class="big user md icon"></i>
+      <header class="ui header">
+    ${determineBMICategory}
+      </header>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="ui raised segment">
+  <form class="ui  tiny form" action="/dashboard/addAssessment" method="POST">
+    <div class="ui tiny form">
+      <div class="three fields">
+        <div class="field">
+          <label>Weight</label>
+          <input placeholder="0.00kg" type="number" name=weight>
+        </div>
+        <div class="field">
+          <label>Chest</label>
+          <input placeholder="00.00cm" type="number" name=chest>
+        </div>
+        <div class="field">
+          <label>Thigh</label>
+          <input placeholder="0.00cm" type="number" name=thigh>
+        </div>
+      </div>
+      <div class="ui tiny form">
+        <div class="three fields">
+          <div class="field">
+            <label>Upper Arm</label>
+            <input placeholder="0.00cm" type="number" name=upperArm>
+          </div>
+          <div class="field">
+            <label>Waist</label>
+            <input placeholder="0.00cm" type="number" name=waist>
+          </div>
+          <div class="field">
+            <label>Hips</label>
+            <input placeholder="0.00cm" type="number" name=hips>
+          </div>
+        </div>
+      </div>
+      <button class="ui blue submit button">Add Assessment</button>
+  </form>
+</section>
+
+
+
+
+
+<section class="ui raised segment">
+  <header class="ui header">
+    Assessment History
+  </header>
+
+  <table class="ui fixed table">
+    <thead>
+    <tr>
+      <th>Weight</th>
+      <th>Chest</th>
+      <th>Thigh</th>
+      <th>Upper Arm</th>
+      <th>Waist</th>
+      <th>Hips</th>
+      <th>Comments</th>
+    </tr>
+    </thead>
+    <tbody>
+    #{list items:assessments, as:'assessment'}
+    <tr>
+      <td>
+      ${assessment.weight}
+      </td>
+      <td>
+      ${assessment.chest}
+      </td>
+      <td>
+      ${assessment.thigh}
+      </td>
+      <td>
+      ${assessment.upperArm}
+      </td>
+      <td>
+      ${assessment.waist}
+      </td>
+      <td>
+      ${assessment.hips}
+      </td>
+      <td>
+      ${assessment.comment}
+      </td>
+
+      </td>
+      <td> <a href="dashboard/deleteAssessment/${assessment.id}" class="ui tiny red button"> Delete </a> </td>
+    </tr>
+    #{/list}
+    </tbody>
+  </table>
+</section>

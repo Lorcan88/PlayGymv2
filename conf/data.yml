@@ -1,0 +1,64 @@
+Assessment(a1):
+  weight: 123.3f
+  chest: 45.0f
+  thigh: 12.5f
+  upperArm: 23.3f
+  waist: 32.0f
+  hips: 38.0f
+  comment: Good job
+Assessment(a2):
+  weight: 123.3f
+  chest: 45.0f
+  thigh: 12.0f
+  upperArm: 23.3f
+  waist: 31.0f
+  hips: 36.0f
+  comment: Keep it up
+Assessment(a3):
+  weight: 123.3f
+  chest: 45.0f
+  thigh: 12.0f
+  upperArm: 23.3f
+  waist: 31.0f
+  hips: 36.0f
+  comment:
+Assessment(a4):
+  weight: 123.3f
+  chest: 45.0f
+  thigh: 12.0f
+  upperArm: 23.3f
+  waist: 31.0f
+  hips: 36.0f
+  comment:
+Member(m1):
+  firstname: Homer
+  lastname: Simpson
+  email: homer@simpson.com
+  password: secret
+  address: 15 Railway Place
+  gender: male
+  height: 1.542f
+  startingWeight: 79f
+  assessments:
+    - a1
+    - a2
+Member(m2):
+  firstname: Marge
+  lastname: Simpson
+  email: marge@simpson.com
+  password: secret
+  address: 15 Railway Place
+  gender: female
+  height: 1.524f
+  startingWeight: 79f
+  assessments:
+    - a3
+    - a4
+Trainer(tr1):
+  firstname: Bart
+  lastname: Simpson
+  email: bart@simpson.com
+  password: 1234
+  members:
+    - m1
+    - m2
